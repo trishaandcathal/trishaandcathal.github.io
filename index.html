@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Trisha & Cathal — 19 February 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&family=Corinthia:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF6EC;
+    --green:#1F3A2E;
+    --green-deep:#152A21;
+    --gold:#AD8A4C;
+    --ink:#2B2620;
+    --blush:#E7D6C4;
+    --plum:#4E2A44;
+    --line: rgba(173,138,76,0.45);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.7;
+  }
+  .display{font-family:'Cormorant Garamond', serif;}
+  h1,h2,h3{font-weight:500; letter-spacing:0.02em;}
+
+  .frame{
+    border:1px solid var(--line);
+    margin:14px;
+    min-height:calc(100vh - 28px);
+    position:relative;
+  }
+  .frame::before{
+    content:"";
+    position:absolute; inset:8px;
+    border:1px solid rgba(78,42,68,0.5);
+    pointer-events:none;
+  }
+
+  /* HERO */
+  .hero{
+    min-height:calc(100vh - 28px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:60px 24px;
+  }
+  .monogram{
+    width:112px; height:112px;
+    border:1px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:36px;
+  }
+  .monogram svg{ width:58px; height:58px; }
+  .hero .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:0.35em;
+    font-size:12px;
+    color:var(--gold);
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(48px, 8vw, 96px);
+    font-weight:400;
+    color:var(--green);
+    line-height:1.05;
+  }
+  .hero .amp{
+    display:block;
+    font-style:italic;
+    font-size:0.55em;
+    color:var(--gold);
+    margin:6px 0;
+  }
+  .hero .date-line{
+    margin-top:34px;
+    font-size:20px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink);
+  }
+  .hero .venue-line{
+    margin-top:8px;
+    font-style:italic;
+    color:var(--green);
+    font-size:19px;
+  }
+  .rule-flourish{
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    margin:30px auto;
+  }
+  .rule-flourish .rl{
+    width:44px; height:1px; background:var(--gold);
+  }
+  .rule-flourish .rd{
+    width:7px; height:7px; background:var(--plum);
+    transform:rotate(45deg);
+  }
+  .scroll-cue{
+    position:absolute; bottom:36px;
+    font-size:11px; letter-spacing:0.3em;
+    text-transform:uppercase; color:var(--plum);
+  }
+
+  section{
+    max-width:760px;
+    margin:0 auto;
+    padding:110px 24px;
+    text-align:center;
+  }
+  .eyebrow-sm{
+    text-transform:uppercase; letter-spacing:0.3em; font-size:12px; color:var(--gold);
+    margin-bottom:18px;
+  }
+  section h2{
+    font-size:clamp(30px,4vw,42px);
+    color:var(--green);
+    margin-bottom:26px;
+    font-style:italic;
+  }
+  section p{
+    max-width:520px; margin:0 auto;
+    color:#4b463d;
+    font-size:19px;
+  }
+
+  /* DETAILS GRID */
+  .details-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    margin-top:56px;
+    border-top:1px solid var(--line);
+  }
+  .detail{
+    padding:40px 30px;
+    border-bottom:1px solid var(--line);
+  }
+  .detail:nth-child(odd){ border-right:1px solid var(--line); }
+  .detail .label{
+    text-transform:uppercase; letter-spacing:0.25em; font-size:11px; color:var(--gold); margin-bottom:12px;
+  }
+  .detail .value{
+    font-family:'Cormorant Garamond', serif;
+    font-size:26px; color:var(--green);
+  }
+  .detail .sub{
+    margin-top:6px; font-size:15px; color:#6b665c;
+  }
+
+  /* SCHEDULE */
+  .schedule{ text-align:left; margin-top:50px; }
+  .schedule-item{
+    display:grid; grid-template-columns:110px 1fr;
+    gap:24px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .schedule-item:first-child{ border-top:1px solid var(--line); }
+  .schedule-item .time{
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px; color:var(--gold); font-style:italic;
+  }
+  .schedule-item .what{ font-size:19px; color:var(--ink); }
+  .schedule-item .where{ font-size:14px; color:#7a7568; margin-top:2px; }
+
+  /* RSVP */
+  .rsvp-box{
+    margin-top:44px;
+    border:1px solid var(--gold);
+    padding:50px 34px;
+  }
+  .btn{
+    display:inline-block;
+    margin-top:28px;
+    padding:14px 44px;
+    background:var(--green);
+    color:var(--ivory);
+    text-decoration:none;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    font-size:13px;
+    transition:background 0.3s ease;
+  }
+  .btn:hover{ background:var(--green-deep); }
+
+  footer{
+    text-align:center;
+    padding:70px 24px 90px;
+    color:var(--gold);
+    font-size:14px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+  }
+
+  @media(max-width:640px){
+    .details-grid{ grid-template-columns:1fr; }
+    .detail:nth-child(odd){ border-right:none; }
+    .schedule-item{ grid-template-columns:80px 1fr; }
+  }
+
+  /* DAY DIVIDER */
+  .day-divider{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  .day-divider .dd-line{
+    flex:1; height:1px; background:var(--line);
+  }
+  .day-divider .dd-label{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    letter-spacing:0.1em;
+    color:var(--gold);
+    white-space:nowrap;
+  }
+
+  /* DAY TWO */
+  .day-two-tag{
+    display:inline-block;
+    border:1px solid var(--gold);
+    padding:6px 18px;
+    font-size:11px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--green);
+    margin-bottom:22px;
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <div class="hero">
+    <h1>Trisha<span class="amp">&amp;</span>Cathal</h1>
+    <div class="rule-flourish"><span class="rl"></span><span class="rd"></span><span class="rl"></span></div>
+    <div class="date-line">Thursday, the 19th of February 2026</div>
+    <div class="venue-line">Tankardstown House, Slane, Co. Meath</div>
+    <div class="scroll-cue">Scroll</div>
+  </div>
+</div>
+
+<section id="details">
+  <div class="eyebrow-sm">The Details</div>
+  <h2>When &amp; Where</h2>
+  <div class="details-grid">
+    <div class="detail">
+      <div class="label">Ceremony</div>
+      <div class="value">2:30 in the afternoon</div>
+      <div class="sub">The Long Gallery, Tankardstown House</div>
+    </div>
+    <div class="detail">
+      <div class="label">Reception</div>
+      <div class="value">6:00 in the evening</div>
+      <div class="sub">The Barn, Tankardstown House</div>
+    </div>
+    <div class="detail">
+      <div class="label">Bridesmaids</div>
+      <div class="value" style="color:var(--plum);">Deep Plum</div>
+      <div class="sub">The colour of the day's palette</div>
+    </div>
+    <div class="detail">
+      <div class="label">Location</div>
+      <div class="value">Slane, Co. Meath</div>
+      <div class="sub">Parking on site, taxis recommended after 11pm</div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="eyebrow-sm">Order of the Day</div>
+  <h2>Schedule</h2>
+  <div class="schedule">
+    <div class="schedule-item">
+      <div class="time">2:00pm</div>
+      <div><div class="what">Guests arrive &amp; are seated</div><div class="where">The Long Gallery</div></div>
+    </div>
+    <div class="schedule-item">
+      <div class="time">2:30pm</div>
+      <div><div class="what">Ceremony</div><div class="where">The Long Gallery</div></div>
+    </div>
+    <div class="schedule-item">
+      <div class="time">3:15pm</div>
+      <div><div class="what">Drinks reception &amp; garden walk</div><div class="where">The Walled Garden</div></div>
+    </div>
+    <div class="schedule-item">
+      <div class="time">6:00pm</div>
+      <div><div class="what">Wedding breakfast</div><div class="where">The Barn</div></div>
+    </div>
+    <div class="schedule-item">
+      <div class="time">9:00pm</div>
+      <div><div class="what">Dancing until late</div><div class="where">The Barn</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="day-divider">
+  <div class="dd-line"></div>
+  <div class="dd-label">The Celebration Continues</div>
+  <div class="dd-line"></div>
+</div>
+
+<section id="day-two">
+  <div class="day-two-tag">Day Two</div>
+  <div class="eyebrow-sm">Friday, the 20th of February</div>
+  <h2>Join us at Bennetts, Ardcath</h2>
+  <p>For those who can stay on, we'd love to keep the celebration going the following day at Bennetts Ardcath — relaxed food, live music, and no formalities. Come and go as you please.</p>
+  <div class="details-grid">
+    <div class="detail">
+      <div class="label">Gathers From</div>
+      <div class="value">2:00 in the afternoon</div>
+      <div class="sub">Bennetts, Ardcath, Co. Meath</div>
+    </div>
+    <div class="detail">
+      <div class="label">Food Served</div>
+      <div class="value">4:00 in the afternoon</div>
+      <div class="sub">Casual bar food</div>
+    </div>
+    <div class="detail">
+      <div class="label">Dress Code</div>
+      <div class="value">Casual</div>
+      <div class="sub">Come as you are</div>
+    </div>
+    <div class="detail">
+      <div class="label">Location</div>
+      <div class="value">Ardcath, Co. Meath</div>
+      <div class="sub">A short drive from Tankardstown House</div>
+    </div>
+  </div>
+</section>
+
+<section id="accommodation">
+  <div class="eyebrow-sm">Staying Over</div>
+  <h2>Accommodation</h2>
+  <p>A few options nearby for both nights — we'd recommend booking early, as rooms in the area go quickly in February.</p>
+  <div class="details-grid">
+    <div class="detail">
+      <div class="label">On Site</div>
+      <div class="value">Tankardstown House</div>
+      <div class="sub">Courtyard rooms &amp; suites — ask for the wedding rate</div>
+    </div>
+    <div class="detail">
+      <div class="label">5 Minutes Away</div>
+      <div class="value">Conyngham Arms Hotel</div>
+      <div class="sub">Slane village, walkable to the town</div>
+    </div>
+    <div class="detail">
+      <div class="label">15 Minutes Away</div>
+      <div class="value">Station House Hotel</div>
+      <div class="sub">Kilmessan, quiet countryside setting</div>
+    </div>
+    <div class="detail">
+      <div class="label">Near Day Two</div>
+      <div class="value">Local B&amp;Bs, Ardcath</div>
+      <div class="sub">A short walk from Bennetts — details to follow</div>
+    </div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="eyebrow-sm">Kindly Reply</div>
+  <h2>RSVP</h2>
+  <div class="rsvp-box">
+    <p>We would be honoured to have you join us — for the wedding day, Day Two, or both. Please let us know by the 1st of December 2025.</p>
+    <a class="btn" href="#">Respond Now</a>
+  </div>
+</section>
+
+<footer>Trisha &amp; Cathal · 19–20.02.2026 · Tankardstown House &amp; Bennetts, Ardcath</footer>
+
+</body>
+</html>
